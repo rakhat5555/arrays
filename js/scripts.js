@@ -1,20 +1,22 @@
 $(document).ready(function() {
   $("form").submit(function(event) {
-
-    var lists = [];
-
-    var food = $("input#food").val();
-    var color = $("input#color").val();
-    var place= $("input#place").val();
+    var food = $("input#food").val().toUpperCase();
+    var color = $("input#color").val().toUpperCase();
+    var place= $("input#place").val().toUpperCase();
 
     var favList = [];
+    var lists = [];
+    lists.push(food, color, place);
+    lists.sort().toString();
 
-    lists.push(food, color,place);
    favList.push(lists[0], lists[1],lists[2]);
 
-    $(".food").text(lists[0]);
-    $(".color").text(lists[1]);
-    $(".place").text(lists[2]);
+ $("#demo").append("<li>" + lists[0]+"</li>");
+ $("#demo").append("<li>" + lists[1]+"</li>");
+ $("#demo").append("<li>" + lists[2]+"</li>");
+    //  $(".food").text(lists[0]);
+    // $(".color").text(lists[1]);
+    // $(".place").text(lists[2]);
 
 
     $("#list").show();
